@@ -1,0 +1,141 @@
+Exercice 1.
+
+Algorithme: estPremier
+Variables nb: entier;
+Début
+    si nb == 2 alors
+        retourne vrai;
+    sinon si nb < 2 alors
+        retourne faux;
+    sinon
+        pour i allant de 2 à nb - 1 faire
+            si nb % i == 0 alors
+                retourne faux;
+            fin si;
+        fin pour;
+        retourne vrai;
+    fin si;
+Fin;
+
+---
+
+Exercice 2.
+
+Algorithme: sommeDesCubes
+Types tab = tableau[3] entiers;
+Variables t: tab; somme: entier;
+Début
+    pour i allant de 100 à 500 faire
+        t[2] = i % 10; 
+        t[1] = ((i - t[2]) / 10) % 10
+        t[0] = (((i - t[2]) / 10)) - t[1] / 10) % 10
+
+        somme <- t[0] ** 3 + t[1] ** 3 + t[2] ** 3;
+        si somme == i alors
+            affiche(i);
+        fin si;
+    fin pour;
+Fin;
+
+---
+
+Exercice 3.
+
+Algorithme: nombreParfait
+Variables n: entier; somme: entier;
+Début
+    lire(n);
+
+    pour i allant de 1 à n faire
+        somme <- 0;
+        pour j allant de 1 à i - 1 faire
+            si i % j == 0 alors
+                somme = somme + j;
+            fin si;
+        fin pour;
+
+        si somme == i alors
+            afficher(i + " parfait");
+        fin si;
+    fin pour;
+Fin;
+
+---
+
+Exercice 4.
+
+Algorithme: N1 N2
+Variables n: entier;
+Début
+    lire(n);
+    
+Fin;
+
+---
+
+Exercice 5.
+
+Algorithme: Diviseurs
+Variables n: entier; min: entier; max: entier;
+Début
+    lire(n);
+    min <- 1
+    max <- n;
+
+    pour i allant de 2 à n - 1 faire
+
+    fin pour;
+Fin;
+
+---
+
+Exercice 6.
+---
+
+Exercice 7.
+
+Algorithme: Tableaux identiques
+Types tab = tableau[0..n] entiers;
+Variables t1: tab; t2: tab; n: entier;
+Début
+    pour i allant de 0 à n-1 faire
+        si t1[i] != t2[i] alors
+            retourne faux;
+    fin pour;
+
+    retourne vrai;
+Fin;
+
+---
+
+Exercice 8.
+
+Algorithme: Palindrome
+Types tab = tableau[1, 3, 4, 6, 4, 3, 1] entiers;
+Variables t: tab; n: entier;
+Début
+    pour i allant de 0 à n-1 faire
+        si t[i] != t[n - i - 1] alors
+            retourne faux;
+    fin pour;
+
+    retourne vrai;
+Fin;
+
+---
+
+Exercice 9.
+
+Algorithme: Plus petit élément tableau
+Types tab = tableau[7, 4, 2, 6, 8, 0, 3, 9] entiers;
+Variables t: tab; n: entier; min: entier;
+Début
+    min <- t[0];
+    pour i allant de 1 à n-1 faire
+        si t[i] < min alors
+            min = t[i];
+        fin si;
+    fin pour;
+
+    retourne min;
+Fin;

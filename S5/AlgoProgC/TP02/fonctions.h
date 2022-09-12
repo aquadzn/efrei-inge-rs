@@ -1,0 +1,12 @@
+void majorite();
+void compte_a_rebours();
+void comparaison_nombres();
+void jours_de_la_semaine();
+void code_pin();
+void pair_ou_impair();
+void nombre_premier();
+void conversion_de_date();
+void table_multiplication();
+void triangle_des_etoiles();
+void factorielle();
+void calculatrice();

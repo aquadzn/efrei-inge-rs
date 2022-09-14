@@ -178,12 +178,15 @@ void mot_de_passe() {
     scanf("%8s", mdp);
     mdp[8] = '\0';
 
-    int code = -1;
+    int majuscule = 1;
+    int caractere_special = 1;
+    int chiffre = 1;
+    int longueur_mdp = 1;
 
     int taille = 0;
     while (mdp[taille] != '\0') {
         if (mdp[taille] >= 'A' && mdp[taille] <= 'Z') {
-            code++;
+            
         }
 
         taille++;

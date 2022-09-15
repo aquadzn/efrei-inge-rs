@@ -18,7 +18,7 @@ void ex_2() {
     printf("Donnez un entier: ");
     scanf("%d", ptr_a);
 
-    printf("Valeur %d stockée à %p\n", a, &a);
+    printf("Valeur %d stockée à %p\n", a, a);
 }
 
 void ex_3() {
@@ -75,8 +75,7 @@ void ex_6() {
     int somme = 0;
     int *ptr_tab = tab;
     for(int i = 0; i < len; i++) {
-        somme += *ptr_tab;
-        ptr_tab++;
+        somme += *(ptr_tab++);
     }
 
     printf("Somme : %d\n", somme);

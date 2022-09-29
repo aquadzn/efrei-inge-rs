@@ -5,7 +5,7 @@
 #include <string.h>
 
 int main() {
-    char buffer[1];
+    char buffer;
 
     int f = open("name.txt", O_WRONLY | O_CREAT, S_IRWXU);
     if (f == -1) {
@@ -32,11 +32,14 @@ int main() {
 
     int c = 0;
     int n;
-    while ((n = read(f, buffer, 1)) > 0)
+    while ((n = read(f, &buffer, 1)) > 0)
     {
         c++;
-        write(dest_file, buffer, 1);
     }
+
+    char c_string[10];
+    sprintf(c_string, "%d", c);
+    write(dest_file, c_string, strlen(c_string));
     printf("%d caractères lu(s).\n", c);
 
     close(f);

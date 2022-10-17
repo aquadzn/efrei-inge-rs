@@ -1,42 +1,43 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
 
-int main()
-{
-    pid_t fils[3], petit_fils[2];
+int main() {
+    pid_t petit_fils[2];
+    pid_t fils1, fils2, fils3;
 
     printf("Parent\t\tPID: %d\n", getpid());
 
-    for (int i = 1; i <= 3; i++)
-    {
-        if ((fils[0] = fork()) == 0)
-        {
-            if (i == 1)
-            {
-                for (int j = 1; j <= 2; j++)
-                {
-                    if ((petit_fils[j] = fork()) == 0)
-                    {
-                        printf("Petit-fils %d\tPID: %d\tPPID: %d\n", j, getpid(), getppid());
-                        exit(0);
-                    }
-                }
-
-                for (int j = 1; j <= 2; j++)
-                {
-                    wait(NULL);
-                }
+    if ((fils1 = fork()) == 0) {
+        sleep(1);
+        for (int j = 1; j <= 2; j++) {
+            if ((petit_fils[j] = fork()) == 0) {
+                printf("Petit-fils %d\tPID: %d\tPPID: %d\n", j, getpid(), getppid());
+                exit(0);
             }
-
-            printf("Fils %d\t\tPID: %d\tPPID: %d\n", i, getpid(), getppid());
-            exit(0);
         }
+
+        for (int j = 1; j <= 2; j++) {
+            wait(NULL);
+        }
+
+        printf("Fils 1\t\tPID: %d\tPPID: %d\n", getpid(), getppid());
+        exit(0);
     }
 
-    for (int i = 1; i <= 3; i++)
-    {
+    if ((fils2 = fork()) == 0) {
+        printf("Fils 2\t\tPID: %d\tPPID: %d\n", getpid(), getppid());
+        exit(0);
+    }
+
+    if ((fils3 = fork()) == 0) {
+        sleep(2);
+        printf("Fils 3\t\tPID: %d\tPPID: %d\n", getpid(), getppid());
+        exit(0);
+    }
+
+    for (int i = 0; i < 3; i++) {
         wait(NULL);
     }
 

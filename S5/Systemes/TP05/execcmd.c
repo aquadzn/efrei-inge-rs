@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < argc - 2; i++) {
         args[i] = malloc(strlen(argv[i + 2]) * sizeof(char));
         strcpy(args[i], argv[i + 2]);
+        printf("%s\n", args[i]);
     }
 
     args[argc - 2] = NULL;

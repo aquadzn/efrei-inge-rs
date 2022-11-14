@@ -22,6 +22,6 @@ int main() {
         signal(SIGUSR2, sig_handler);
         signal(SIGINT, sig_handler);
     }
-
+é
     return 0;
 }
